@@ -10,15 +10,15 @@ int gcd(int x, int y){
 }
 
 int main(){
-	int n;
+	int n, i;
 	scanf("%d", &n);
 	
-	for(int i = 1; i <= n; i++)
+	for(i = 1; i <= n; i++)
 		scanf("%d", &tunel[i]); 
 	
 	int resultado = -1;
 	
-	for(int i = 1; i <= n; i++){
+	for(i = 1; i <= n; i++){
 		if(tunel[i]){
 			int count = 0;
 			int atual = i;
@@ -33,7 +33,7 @@ int main(){
 			resultado = (resultado / gcd(resultado, count) * count);
 		}
 	}
-	printf("%d", resultado);
+	printf("%d\n", resultado);
 	
 	return 0;
 }
