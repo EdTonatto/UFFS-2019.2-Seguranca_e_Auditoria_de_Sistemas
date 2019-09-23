@@ -2,6 +2,7 @@
 #URI 1153
 
 identityMatrix = [[1, 0], [0, 1]]
+baseMatrix = [[0, 1], [1, 1]]
 
 def printMatrix(matrix):
 	print("\nPrintando matriz:")
@@ -26,13 +27,10 @@ def expMatrix(matrixA, exp):
 		
 	matrixAns = expMatrix(matrixA, exp/2)
 	return multiplyMatrix(matrixAns, matrixAns)
+	
+def fibonacci(num):
+	matrixFib = expMatrix(baseMatrix, num)
+	return matrixFib[0][1]
 
-A = [[1, 2], [3, 4]]
-B = [[-1, 3], [4, 2]]
-printMatrix(A)
-printMatrix(B)
-multiplyMatrix(A, B)
-X = multiplyMatrix(A, B)
-printMatrix(X)
-printMatrix(expMatrix(A, 29))
+print(fibonacci(78))
 
