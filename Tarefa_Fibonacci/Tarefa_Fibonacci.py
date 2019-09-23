@@ -32,4 +32,13 @@ def fibonacci(num):
 	matrixFib = expMatrix(baseMatrix, num)
 	return matrixFib[0][1]
 
-print(fibonacci(78))
+while True:
+	try:
+		X = input()
+		X = X.split()
+		N = int(X[0])
+		M = int(X[1])
+		print(fibonacci(fibonacci(N))%M)
+	except:
+		break
+#print(fibonacci(78))
