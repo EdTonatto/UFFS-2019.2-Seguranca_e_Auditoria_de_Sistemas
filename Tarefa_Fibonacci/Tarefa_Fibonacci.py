@@ -16,6 +16,17 @@ def multiplyMatrix(matrixA, matrixB):
 	matrixAns[1][1] = matrixA[1][0] * matrixB[0][1] + matrixA[1][1] * matrixB[1][1]
 	return matrixAns
 
+def expMatrix(matrixA, exp):
+	matrixAns = [[0, 0], [0, 0]]
+	if exp == 0:
+		return identityMatrix
+		
+	if exp%2 == 1:
+		return multiplyMatrix(matrixA, expMatrix(matrixA, (exp - 1)))
+		
+	matrixAns = expMatrix(matrixA, exp/2)
+	return multiplyMatrix(matrixAns, matrixAns)
+
 A = [[1, 2], [3, 4]]
 B = [[-1, 3], [4, 2]]
 printMatrix(A)
@@ -23,3 +34,5 @@ printMatrix(B)
 multiplyMatrix(A, B)
 X = multiplyMatrix(A, B)
 printMatrix(X)
+printMatrix(expMatrix(A, 29))
+
