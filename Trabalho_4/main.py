@@ -16,3 +16,8 @@ while True:
                 newuser[globals.field_name],
                 newuser[globals.field_email],
                 newuser[globals.field_password])
+            print("Usuario {name} cadastrado com sucesso com o nickname {nickname}".format(name=newuser[globals.field_name], nickname=newuser[globals.field_nickname]))
+            utils.pauseScreen()
+        if (op == 2):
+            users.showUsers()
+            utils.pauseScreen()

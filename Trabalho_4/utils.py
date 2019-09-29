@@ -4,6 +4,8 @@ import globals
 def clearScreen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+def pauseScreen():
+    input("\nPressione <enter> para continuar")
 
 def showMainMenu():
     op = -1
@@ -38,3 +40,6 @@ def showRegisterUser():
     newuser[globals.field_email] = str(input("3: "))
     newuser[globals.field_password] = str(input("4: "))
     return newuser
+
+def showHeaderShowUser():
+    print("------------------------------ LISTANDO USUARIOS -----------------------------")

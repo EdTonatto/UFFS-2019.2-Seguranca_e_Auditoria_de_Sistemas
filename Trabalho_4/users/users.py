@@ -1,5 +1,6 @@
 import csv
 import globals
+import utils
 
 def verifyUserFileExistance():
     try:
@@ -34,7 +35,12 @@ def registerUser(nickname, name, email, senha):
         csvfile.close()
 
 def showUsers():
+    utils.showHeaderShowUser()
     with open('users/registered/users.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
+        i = 1
         for row in reader:
-            print(row[globals.field_nickname], row[globals.field_name], row[globals.field_email], row[globals.field_password])
+            print("{i:4d}° Usuário - NickName: {nickname}; Nome: {name}; Email: {email};".format(i=i,
+                                                                                                nickname=row[globals.field_nickname],
+                                                                                                name=row[globals.field_name],
+                                                                                                email=row[globals.field_email]))
