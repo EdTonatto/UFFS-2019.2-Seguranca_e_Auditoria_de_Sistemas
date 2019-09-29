@@ -10,7 +10,7 @@ def pauseScreen():
 def showHeaderShowUser():
     print("------------------------------ LISTANDO USUARIOS -----------------------------")
 
-def showLogin():
+def showLoginMenu():
     op = -1
     print("------------------------------------ LOGIN -----------------------------------")
     print("    Opções:")
@@ -19,6 +19,16 @@ def showLogin():
     print("        3 - Sair")
     op = input("Opção selecionada: ")
     return int(op)
+
+def showLoginUsrPsswdMenu():
+    logininfo = {}
+    print("------------------------------- REALIZAR LOGIN -------------------------------")
+    print("    Informe:")
+    print("        1 - NickName (Login)")
+    print("        2 - Senha")
+    logininfo[globals.field_nickname] = str(input("1: "))
+    logininfo[globals.field_password] = str(input("2: "))
+    return logininfo
 
 def showMainMenu():
     op = -1

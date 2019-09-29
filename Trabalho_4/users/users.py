@@ -2,6 +2,7 @@ import csv
 import globals
 import utils
 import os
+import time
 
 def verifyUserFileExistance():
     try:
@@ -15,8 +16,8 @@ def verifyUserExistance(nickname):
         reader = csv.DictReader(csvfile)
         for row in reader:
             if(row[globals.field_nickname] == nickname):
-                return True
-        return False
+                return True, row[globals.field_password]
+        return False, ""
 
 def writeHeader():
     with open(globals.path_user_csv, 'w', newline='') as csvfile:
@@ -31,7 +32,8 @@ def registerUser(nickname, name, email, senha):
     with open(globals.path_user_csv, 'a', newline='') as csvfile:
         fields = [globals.field_nickname, globals.field_name, globals.field_email, globals.field_password]
         writer = csv.DictWriter(csvfile, fieldnames=fields)
-        if(not verifyUserExistance(nickname)):
+        flag = verifyUserExistance(nickname)
+        if(not flag[0]):
             writer.writerow({globals.field_nickname: nickname, globals.field_name: name, globals.field_email: email, globals.field_password: senha})
         csvfile.close()
 
@@ -56,3 +58,21 @@ def deleteUsersFile():
         print("Arquivo {path} excluido com sucesso".format(path=globals.path_user_csv))
     except:
         print("Nao foi possivel excluir o arquivo {path}.\nArquivo Inexistente. Cadastre usuarios primeiro".format(path=globals.path_user_csv))
+
+def valideLogin(nickname, password):
+    def invalidLogin():
+        print("Informacoes incorretas. Tente novamente")
+        time.sleep(3)
+    def validLogin():
+        print("Informacoes corretas. Aguarde para ser direcionado ao menu principal")
+        time.sleep(3)
+    login = verifyUserExistance(nickname)
+    if (login[0] == True):
+        if(password == login[1]):
+            validLogin()
+            return True
+        else:
+            invalidLogin()
+            return False
+    invalidLogin()
+    return False
