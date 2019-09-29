@@ -68,6 +68,8 @@ def valideLogin(nickname, password):
         globals.current_user_nickname = nickname
         globals.current_user_name = name
         globals.current_user_email = email
+        globals.public_key = globals.current_user_nickname + "_public.key"
+        globals.private_key = globals.current_user_nickname + "_private.key"
         time.sleep(3)
     login = verifyUserExistance(nickname)
     if (login[0] == True):

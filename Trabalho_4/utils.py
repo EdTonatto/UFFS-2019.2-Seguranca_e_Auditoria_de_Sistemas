@@ -10,6 +10,18 @@ def pauseScreen():
 def showHeaderShowUser():
     print("------------------------------ LISTANDO USUARIOS -----------------------------")
 
+def showKeyMenu():
+    op = -1
+    clearScreen()
+    print("--------------------------------- MENU CHAVES --------------------------------")
+    print("    Opções:")
+    print("        1 - Gerar chaves publica/privada")
+    print("        2 - Setar tamanho de bits da chave RSA")
+    print("        3 - Listar minhas chaves")
+    print("        4 - Remover minhas chaves")
+    op = input("Opção selecionada: ")
+    return int(op)
+
 def showLoginMenu():
     op = -1
     print("------------------------------------ LOGIN -----------------------------------")
@@ -33,12 +45,18 @@ def showLoginUsrPsswdMenu():
 def showMainMenu():
     op = -1
     clearScreen()
-    print(globals.current_user_nickname)
-    print(globals.current_user_name)
-    print(globals.current_user_email)
+    #print(globals.current_user_nickname)
+    #print(globals.current_user_name)
+    #print(globals.current_user_email)
+    #print(globals.public_key)
+    #print(globals.private_key)
+    #print(globals.path_public_key + globals.public_key)
+    #print(globals.path_private_key + globals.private_key)
     print("------------------------------------ MENU ------------------------------------")
     print("    Opções:")
     print("        1 - Usuários")
+    print("        2 - Chaves")
+    print("        0 - Sair")
     op = input("Opção selecionada: ")
     return int(op)
 

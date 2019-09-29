@@ -1,4 +1,4 @@
-#from keys import keys
+from keys import keys
 from users import users
 import utils
 import globals
@@ -40,6 +40,25 @@ def main():
                 if (op == 3): #DELETAR ARQUIVO DE USUARIOS
                     users.deleteUsersFile()
                     utils.pauseScreen()
+            if (op == 2): #CHAVES
+                op = utils.showKeyMenu()
+                if (op == 1): #GERAR CHAVES
+                    if (keys.generateKeys() == True):
+                        print("Chaves geradas com sucesso!")
+                    else:
+                        print("Chaves ja existentes!")
+                    utils.pauseScreen()
+                if (op == 2): #SETAR BITSIZE RSA
+                    keys.setBitsizeRSA()
+                    utils.pauseScreen()
+                if (op == 3): #LISTAR CHAVES RSA DO Usuario
+                    keys.showKeys()
+                    utils.pauseScreen()
+                if (op == 4): #DELETAR ARQUIVOS DAS CHAVES DO USUARIO
+                    keys.deleteKeysFile()
+                    utils.pauseScreen()
+            if (op == 0):
+                break
     if (op == 2): #CADASTRAR USUARIO NO MOMENTO DE LOGIN LOGAR
         callRegisterUser()
         main()
@@ -47,5 +66,3 @@ def main():
         print("Programa finalizado!!!")
 
 main()
-
-#users.valideLogin("EdTonatto", "senha123")
