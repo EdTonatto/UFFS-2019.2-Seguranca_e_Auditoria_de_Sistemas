@@ -16,8 +16,8 @@ def verifyUserExistance(nickname):
         reader = csv.DictReader(csvfile)
         for row in reader:
             if(row[globals.field_nickname] == nickname):
-                return True, row[globals.field_password]
-        return False, ""
+                return True, row[globals.field_password], row[globals.field_nickname], row[globals.field_name], row[globals.field_email]
+        return False, "", "", "", ""
 
 def writeHeader():
     with open(globals.path_user_csv, 'w', newline='') as csvfile:
@@ -63,13 +63,16 @@ def valideLogin(nickname, password):
     def invalidLogin():
         print("Informacoes incorretas. Tente novamente")
         time.sleep(3)
-    def validLogin():
+    def validLogin(nickname, name, email):
         print("Informacoes corretas. Aguarde para ser direcionado ao menu principal")
+        globals.current_user_nickname = nickname
+        globals.current_user_name = name
+        globals.current_user_email = email
         time.sleep(3)
     login = verifyUserExistance(nickname)
     if (login[0] == True):
         if(password == login[1]):
-            validLogin()
+            validLogin(login[2], login[3], login[4])
             return True
         else:
             invalidLogin()

@@ -6,3 +6,8 @@ field_password = "USR_password"
 
 #CAMINHOS ARQUIVOS
 path_user_csv = "users/registered/users.csv"
+
+#VARIAVEIS DE AMBIENTE
+current_user_nickname = ""
+current_user_name = ""
+current_user_email = ""

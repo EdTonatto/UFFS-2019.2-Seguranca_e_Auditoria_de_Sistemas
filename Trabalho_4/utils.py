@@ -33,6 +33,9 @@ def showLoginUsrPsswdMenu():
 def showMainMenu():
     op = -1
     clearScreen()
+    print(globals.current_user_nickname)
+    print(globals.current_user_name)
+    print(globals.current_user_email)
     print("------------------------------------ MENU ------------------------------------")
     print("    Opções:")
     print("        1 - Usuários")
