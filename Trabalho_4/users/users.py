@@ -44,3 +44,4 @@ def showUsers():
                                                                                                 nickname=row[globals.field_nickname],
                                                                                                 name=row[globals.field_name],
                                                                                                 email=row[globals.field_email]))
+            i = i + 1
