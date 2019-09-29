@@ -57,6 +57,10 @@ def main():
                 if (op == 4): #DELETAR ARQUIVOS DAS CHAVES DO USUARIO
                     keys.deleteKeysFile()
                     utils.pauseScreen()
+                if (op == 5):
+                    utils.showSelectUser()
+                    keys.showOtherPublicKey()
+                    utils.pauseScreen()
             if (op == 0):
                 break
     if (op == 2): #CADASTRAR USUARIO NO MOMENTO DE LOGIN LOGAR

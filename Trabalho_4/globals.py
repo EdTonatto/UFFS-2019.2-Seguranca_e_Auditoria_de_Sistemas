@@ -10,8 +10,10 @@ path_private_key = "keys/private/"
 path_public_key = "keys/public/"
 
 #NOMES ARQUIVOS
-private_key = "default_private.key"
-public_key = "default_public.key"
+my_private_key = "default_private.key"
+my_public_key = "default_public.key"
+other_public_key = "default_other_public.key"
+other_private_key = "default_other_private.key" 
 
 #RSA BITS KEYSIZE
 rsa_key_size = 512

@@ -19,8 +19,18 @@ def showKeyMenu():
     print("        2 - Setar tamanho de bits da chave RSA")
     print("        3 - Listar minhas chaves")
     print("        4 - Remover minhas chaves")
+    print("        5 - Mostrar chave publica de outro usuario")
     op = input("Opção selecionada: ")
     return int(op)
+
+def showSelectUser():
+    op = -1
+    print("------------------------------- INFORME USUARIO ------------------------------")
+    print("    Informe:")
+    print("        1 - Nickname")
+    nickname = str(input("1: "))
+    globals.other_public_key = nickname + "_public.key"
+    globals.other_private_key = nickname + "_private.key"
 
 def showLoginMenu():
     op = -1
@@ -48,10 +58,10 @@ def showMainMenu():
     #print(globals.current_user_nickname)
     #print(globals.current_user_name)
     #print(globals.current_user_email)
-    #print(globals.public_key)
-    #print(globals.private_key)
-    #print(globals.path_public_key + globals.public_key)
-    #print(globals.path_private_key + globals.private_key)
+    #print(globals.my_public_key)
+    #print(globals.my_private_key)
+    #print(globals.path_public_key + globals.my_public_key)
+    #print(globals.path_private_key + globals.my_private_key)
     print("------------------------------------ MENU ------------------------------------")
     print("    Opções:")
     print("        1 - Usuários")
