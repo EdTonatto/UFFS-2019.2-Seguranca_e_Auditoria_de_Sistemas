@@ -7,23 +7,25 @@ def clearScreen():
 def pauseScreen():
     input("\nPressione <enter> para continuar")
 
+def showHeaderShowUser():
+    print("------------------------------ LISTANDO USUARIOS -----------------------------")
+
+def showLogin():
+    op = -1
+    print("------------------------------------ LOGIN -----------------------------------")
+    print("    Opções:")
+    print("        1 - Logar")
+    print("        2 - Cadastrar")
+    print("        3 - Sair")
+    op = input("Opção selecionada: ")
+    return int(op)
+
 def showMainMenu():
     op = -1
     clearScreen()
     print("------------------------------------ MENU ------------------------------------")
     print("    Opções:")
     print("        1 - Usuários")
-    op = input("Opção selecionada: ")
-    return int(op)
-
-def showUserMenu():
-    op = -1
-    clearScreen()
-    print("-------------------------------- MENU USUARIOS -------------------------------")
-    print("    Opções:")
-    print("        1 - Cadastrar usuário")
-    print("        2 - Listar usuários")
-    print("        3 - Remover arquivo de usuários")
     op = input("Opção selecionada: ")
     return int(op)
 
@@ -41,5 +43,13 @@ def showRegisterUser():
     newuser[globals.field_password] = str(input("4: "))
     return newuser
 
-def showHeaderShowUser():
-    print("------------------------------ LISTANDO USUARIOS -----------------------------")
+def showUserMenu():
+    op = -1
+    clearScreen()
+    print("-------------------------------- MENU USUARIOS -------------------------------")
+    print("    Opções:")
+    print("        1 - Cadastrar usuário")
+    print("        2 - Listar usuários")
+    print("        3 - Remover arquivo de usuários")
+    op = input("Opção selecionada: ")
+    return int(op)
