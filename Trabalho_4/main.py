@@ -8,9 +8,10 @@ def login():
     utils.clearScreen()
     logininfo = {}
     logininfo = draw.showLoginUsrPsswdMenu()
-    if (users.valideLogin(logininfo[globals.field_nickname], logininfo[globals.field_password]) == False):
+    if (users.validateLogin(logininfo[globals.field_nickname], logininfo[globals.field_password]) == False):
         login()
     else:
+        utils.createFilesPath()
         return
 
 def callRegisterUser():
@@ -22,6 +23,7 @@ def callRegisterUser():
         newuser[globals.field_email],
         newuser[globals.field_password])
     print("Usuario {name} cadastrado com sucesso com o nickname {nickname}".format(name=newuser[globals.field_name], nickname=newuser[globals.field_nickname]))
+    utils.createFilesPath()
     utils.pauseScreen()
 
 def main():
@@ -61,6 +63,14 @@ def main():
                 if (op == 5):
                     draw.showSelectUser()
                     keys.showOtherPublicKey()
+                    utils.pauseScreen()
+            if (op == 3): #ARQUIVOS
+                op = draw.showFileMenu()
+                if (op == 1):
+                    newfile = {}
+                    newfile = draw.showSendFileMenu()
+                    utils.updateSettingsToSendFile(newfile[globals.field_file_name],
+                                                    newfile[globals.field_file_receiver])
                     utils.pauseScreen()
             if (op == 0):
                 break

@@ -36,6 +36,7 @@ def registerUser(nickname, name, email, senha):
         flag = verifyUserExistance(nickname)
         if(not flag[0]):
             writer.writerow({globals.field_nickname: nickname, globals.field_name: name, globals.field_email: email, globals.field_password: senha})
+            utils.updateCurrentUserData(nickname, name, email)
         csvfile.close()
 
 def showUsers():
@@ -60,17 +61,13 @@ def deleteUsersFile():
     except:
         print("Nao foi possivel excluir o arquivo {path}.\nArquivo Inexistente. Cadastre usuarios primeiro".format(path=globals.path_user_csv))
 
-def valideLogin(nickname, password):
+def validateLogin(nickname, password):
     def invalidLogin():
         print("Informacoes incorretas. Tente novamente")
         time.sleep(3)
     def validLogin(nickname, name, email):
         print("Informacoes corretas. Aguarde para ser direcionado ao menu principal")
-        globals.current_user_nickname = nickname
-        globals.current_user_name = name
-        globals.current_user_email = email
-        globals.my_public_key = globals.current_user_nickname + "_public.key"
-        globals.my_private_key = globals.current_user_nickname + "_private.key"
+        utils.updateCurrentUserData(nickname, name, email)
         time.sleep(3)
     login = verifyUserExistance(nickname)
     if (login[0] == True):

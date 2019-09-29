@@ -46,6 +46,31 @@ def showLoginUsrPsswdMenu():
     logininfo[globals.field_password] = str(input("2: "))
     return logininfo
 
+def showSendFileMenu():
+    newfile = {}
+    print("------------------------------- ENVIAR ARQUIVO -------------------------------")
+    print("    Informe:")
+    print("        1 - NickName destinatario")
+    print("        2 - Nome Arquivo")
+    print("        3 - Conteudo do arquivo")
+    newfile[globals.field_file_receiver] = str(input("1: "))
+    newfile[globals.field_file_name] = str(input("2: "))
+    newfile[globals.field_file_content] = str(input("3: "))
+    newfile[globals.field_file_sender] = globals.current_user_nickname
+    return newfile
+
+def showFileMenu():
+    op = -1
+    utils.clearScreen()
+    print("-------------------------------- MENU ARQUIVOS -------------------------------")
+    print("    Opções:")
+    print("        1 - Enviar arquivo")
+    print("        2 - Ler arquivo")
+    print("        2 - Listar meus arquivos enviados")
+    print("        3 - Listar meus arquivos recebidos")
+    op = input("Opção selecionada: ")
+    return int(op)
+
 def showMainMenu():
     op = -1
     utils.clearScreen()
@@ -60,6 +85,7 @@ def showMainMenu():
     print("    Opções:")
     print("        1 - Usuários")
     print("        2 - Chaves")
+    print("        3 - Arquivos")
     print("        0 - Sair")
     op = input("Opção selecionada: ")
     return int(op)
