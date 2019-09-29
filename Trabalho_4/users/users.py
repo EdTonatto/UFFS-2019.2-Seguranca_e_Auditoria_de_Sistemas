@@ -3,6 +3,7 @@ import globals
 import utils
 import os
 import time
+import draw
 
 def verifyUserFileExistance():
     try:
@@ -39,7 +40,7 @@ def registerUser(nickname, name, email, senha):
 
 def showUsers():
     try:
-        utils.showHeaderShowUser()
+        draw.showHeaderShowUser()
         with open(globals.path_user_csv, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             i = 1

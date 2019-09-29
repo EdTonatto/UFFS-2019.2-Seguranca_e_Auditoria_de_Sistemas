@@ -1,12 +1,13 @@
 from keys import keys
 from users import users
+import draw
 import utils
 import globals
 
 def login():
     utils.clearScreen()
     logininfo = {}
-    logininfo = utils.showLoginUsrPsswdMenu()
+    logininfo = draw.showLoginUsrPsswdMenu()
     if (users.valideLogin(logininfo[globals.field_nickname], logininfo[globals.field_password]) == False):
         login()
     else:
@@ -14,7 +15,7 @@ def login():
 
 def callRegisterUser():
     newuser = {}
-    newuser = utils.showRegisterUser()
+    newuser = draw.showRegisterUser()
     users.registerUser(
         newuser[globals.field_nickname],
         newuser[globals.field_name],
@@ -25,13 +26,13 @@ def callRegisterUser():
 
 def main():
     utils.clearScreen()
-    op = utils.showLoginMenu()
+    op = draw.showLoginMenu()
     if (op == 1):
         login() #REALIZA LOGIN
         while True:
-            op = utils.showMainMenu()
+            op = draw.showMainMenu()
             if (op == 1): #USUARIOS
-                op = utils.showUserMenu()
+                op = draw.showUserMenu()
                 if (op == 1): #CADASTRO DE USUARIOS
                     callRegisterUser()
                 if (op == 2): #LISTAR USUARIOS
@@ -41,7 +42,7 @@ def main():
                     users.deleteUsersFile()
                     utils.pauseScreen()
             if (op == 2): #CHAVES
-                op = utils.showKeyMenu()
+                op = draw.showKeyMenu()
                 if (op == 1): #GERAR CHAVES
                     if (keys.generateKeys() == True):
                         print("Chaves geradas com sucesso!")
@@ -58,7 +59,7 @@ def main():
                     keys.deleteKeysFile()
                     utils.pauseScreen()
                 if (op == 5):
-                    utils.showSelectUser()
+                    draw.showSelectUser()
                     keys.showOtherPublicKey()
                     utils.pauseScreen()
             if (op == 0):
