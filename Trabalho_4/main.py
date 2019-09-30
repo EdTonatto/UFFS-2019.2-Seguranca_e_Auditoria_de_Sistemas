@@ -12,7 +12,7 @@ def login():
     if (users.validateLogin(logininfo[globals.field_nickname], logininfo[globals.field_password]) == False):
         login()
     else:
-        utils.createFilesPath()
+        files.createFilesPath()
         return
 
 def callRegisterUser():
@@ -24,7 +24,7 @@ def callRegisterUser():
         newuser[globals.field_email],
         newuser[globals.field_password])
     print("Usuario {name} cadastrado com sucesso com o nickname {nickname}".format(name=newuser[globals.field_name], nickname=newuser[globals.field_nickname]))
-    utils.createFilesPath()
+    files.createFilesPath()
     utils.pauseScreen()
 
 def main():
@@ -55,9 +55,10 @@ def main():
                 if (op == 2): #SETAR BITSIZE RSA
                     keys.setBitsizeRSA()
                     utils.pauseScreen()
-                if (op == 3): #LISTAR CHAVES RSA DO Usuario
+                if (op == 3): #LISTAR CHAVES RSA DO USUARIO
                     keys.showKeys()
                     utils.pauseScreen()
+                    continue
                 if (op == 4): #DELETAR ARQUIVOS DAS CHAVES DO USUARIO
                     keys.deleteKeysFile()
                     utils.pauseScreen()
