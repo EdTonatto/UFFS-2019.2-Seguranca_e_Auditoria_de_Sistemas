@@ -35,21 +35,23 @@ def showOtherPublicKey():
     print(getOtherPublicKey())
 
 def deleteKeysFile():
+    def printNotFound():
+        print("Arquivos '{pathpvk}' e '{pathpbk}' nao foram encontrados.".format(
+                                                                            pathpvk=globals.path_private_key + globals.my_private_key,
+                                                                            pathpbk=globals.path_public_key + globals.my_public_key))
+    def printSuccess():
+        print("Arquivos '{pathpvk}' e '{pathpbk}' excluidos com sucesso.".format(
+                                                                            pathpvk=globals.path_private_key + globals.my_private_key,
+                                                                            pathpbk=globals.path_public_key + globals.my_public_key))
     try:
         if (validateKeysFileExistance(globals.my_private_key, globals.my_public_key)  == True):
             os.remove(globals.path_private_key + globals.my_private_key)
             os.remove(globals.path_public_key + globals.my_public_key)
-            print("Arquivos '{pathpvk}' e '{pathpbk}' excluidos com sucesso.".format(
-                                                                                pathpvk=globals.path_private_key + globals.my_private_key,
-                                                                                pathpbk=globals.path_public_key + globals.my_public_key))
+            printSuccess()
         else:
-            print("Arquivos '{pathpvk}' e '{pathpbk}' nao foram encontrados.".format(
-                                                                                pathpvk=globals.path_private_key + globals.my_private_key,
-                                                                                pathpbk=globals.path_public_key + globals.my_public_key))
+            printNotFound()
     except:
-        print("Arquivos '{pathpvk}' e '{pathpbk}' nao foram encontrados.".format(
-                                                                            pathpvk=globals.path_private_key + globals.my_private_key,
-                                                                            pathpbk=globals.path_public_key + globals.my_public_key))
+        printNotFound()
 
 def generateKeys():
     if (validateKeysFileExistance(globals.my_private_key, globals.my_public_key)  == False):
