@@ -7,6 +7,16 @@ def clearScreen():
 def pauseScreen():
     input("\nPressione <enter> para continuar")
 
+def createSendToFile(content):
+    if (not os.path.exists(globals.path_text_file + "/" + globals.text_file)):
+        with open(globals.path_text_file + "/" + globals.text_file, 'w') as newfile:
+            newfile.write(content)
+            newfile.close()
+
+def createSendToPath():
+    if (not os.path.exists(globals.path_text_file)):
+        os.makedirs(globals.path_text_file)
+
 def createFilesPath():
     if (not os.path.exists("files/" + globals.current_user_nickname + "/send_to")):
         os.makedirs("files/" + globals.current_user_nickname + "/send_to")
@@ -18,8 +28,7 @@ def updateTextFilePath(send_or_receive, file_name):
     path = (globals.path_text_file +
             globals.current_user_nickname + "/" +
             send_or_receive + "/" +
-            globals.current_other_user_nickname + "/" +
-            file_name)
+            globals.current_other_user_nickname)
     globals.path_text_file = path
 
 def updateTextFileName(newname):

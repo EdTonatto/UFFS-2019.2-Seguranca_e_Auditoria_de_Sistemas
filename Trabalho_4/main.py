@@ -1,5 +1,6 @@
 from keys import keys
 from users import users
+from files import files
 import draw
 import utils
 import globals
@@ -71,6 +72,7 @@ def main():
                     newfile = draw.showSendFileMenu()
                     utils.updateSettingsToSendFile(newfile[globals.field_file_name],
                                                     newfile[globals.field_file_receiver])
+                    files.createSendFile(newfile[globals.field_file_content])
                     utils.pauseScreen()
             if (op == 0):
                 break
