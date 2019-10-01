@@ -1,4 +1,4 @@
 # UFFS-2019.2-Seguranca_e_Auditoria_de_Sistemas
-* Tarefa_1: Exercício 2063 do URI: "Caçando Digletts".
-* Tarefa_Fibonacci: Exercício 1153 do URI: "Fibonacci De Novo!".
-* Trabalho_4: Programa com comportamento semelhante ao GPG.
+* __Tarefa_1__: Exercício 2063 do URI: "Caçando Digletts".
+* __Tarefa_Fibonacci__: Exercício 1153 do URI: "Fibonacci De Novo!".
+* __Trabalho_4__: Programa com comportamento semelhante ao GPG.
