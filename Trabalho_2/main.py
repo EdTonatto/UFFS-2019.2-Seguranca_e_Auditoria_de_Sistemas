@@ -45,7 +45,7 @@ def order_histogram_wl():
 def create_histogram_wl():
     for letter in string.ascii_letters:
         histogram_dict_wl[letter] = 0
-    with open("word_list", 'r') as wlist:
+    with open("words", 'r') as wlist:
         for word in wlist:
             for wletter in word:
                 if wletter in string.ascii_letters:
@@ -64,9 +64,9 @@ def create_histogram_w():
 encrypt_dict = shuffle_dictionary()
 #print_encrypt_dict()
 
-text = wikipedia.page("United States").content
+text = wikipedia.page("New York City").content
 #text = encrypt_text(input("Informe um texto para cifrar: "))
-print(text)
+#print(text)
 
 create_histogram_wl()
 histogram_dict_wl = order_histogram_wl()
@@ -77,4 +77,5 @@ create_histogram_w()
 histogram_dict_w = order_histogram_w()
 
 print(histogram_dict_wl)
+print("\n\n")
 print(histogram_dict_w)
