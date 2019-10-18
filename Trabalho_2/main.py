@@ -26,8 +26,18 @@ def encrypt_text(text):
     print(encrypted_text)
 
 def print_histogram_dict():
+    print("\nMostrando histograma ordenado alfabeticamente:")
     for letter in string.ascii_letters:
         print("A letra {letter} apareceu {times} na lista de palavras.".format(letter=letter, times=histogram_dict[letter]))
+
+def print_ordered_histogram_dict():
+    keys = list(histogram_dict.keys())
+    print("\nMostrando histograma ordenado por aparicoes:")
+    for key in keys:
+        print("-> A letra {letter} apareceu {times} na lista de palavra".format(letter=key, times=histogram_dict[key]))
+
+def order_histogram():
+    return dict(OrderedDict(sorted(histogram_dict.items(), key=lambda x: x[1], reverse=True)))
 
 def create_histogram():
     for letter in string.ascii_letters:
@@ -39,9 +49,13 @@ def create_histogram():
                     histogram_dict[wletter] = histogram_dict[wletter] + 1
 
 encrypt_dict = shuffle_dictionary()
-print_encrypt_dict()
+#print_encrypt_dict()
+
 #text = input("Informe um texto para cifrar: ")
 #print(text)
 #encrypt_text(text)
+
 create_histogram()
-print_histogram_dict()
+histogram_dict = order_histogram()
+#print_histogram_dict()
+#print_ordered_histogram_dict()
