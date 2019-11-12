@@ -1,6 +1,6 @@
 from huffman import *
 
-text = 'EduardoTonatto'
+text = 'EDUARDOTONATTO'
 
 frequency = frequency(text)
 print(frequency)
