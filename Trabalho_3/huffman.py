@@ -40,3 +40,17 @@ def dictionary(tree, symbol = ''):
 
 def encrypt(text, dictionary):
     return "".join([dictionary[letter] for letter in text])
+
+def decrypt_text(codes, tree):
+    text = []
+    node = tree
+    for code in codes:
+        if node[1] is '':
+            if code == '0':
+                node = node[LEFT]
+            elif code == '1':
+                node = node[RIGHT]
+        if node[1] is not '':
+            text.append(node[1])
+            node = tree
+    return "".join(text)
