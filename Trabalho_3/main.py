@@ -7,3 +7,6 @@ print(frequency)
 
 prefix = prefix(frequency)
 print(prefix)
+
+dictionary = dictionary(prefix)
+print(dictionary)
