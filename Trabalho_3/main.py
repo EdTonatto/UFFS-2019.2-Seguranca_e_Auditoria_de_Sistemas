@@ -10,3 +10,6 @@ print(prefix)
 
 dictionary = dictionary(prefix)
 print(dictionary)
+
+encrypted_text = encrypt(text, dictionary)
+print(encrypted_text) 

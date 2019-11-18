@@ -37,3 +37,6 @@ def dictionary(tree, symbol = ''):
         right_branch = dictionary(tree[RIGHT], symbol + '1')
         left_branch.update(right_branch)
         return left_branch
+
+def encrypt(text, dictionary):
+    return "".join([dictionary[letter] for letter in text])
