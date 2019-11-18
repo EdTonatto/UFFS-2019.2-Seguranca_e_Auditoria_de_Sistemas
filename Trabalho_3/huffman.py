@@ -1,6 +1,9 @@
 from collections import Counter
 import heapq
 
+LEFT = 2
+RIGHT = 3
+
 def frequency(text):
     return Counter(text)
 
@@ -23,3 +26,14 @@ def prefix(frequency):
         heapq.heappush(tree, parent)
     root = tree[0]
     return root
+
+def dictionary(tree, symbol = ''):
+    node = tree[1]
+
+    if node is not '':
+        return {node: symbol or '0'}
+    else:
+        left_branch = dictionary(tree[LEFT], symbol + '0')
+        right_branch = dictionary(tree[RIGHT], symbol + '1')
+        left_branch.update(right_branch)
+        return left_branch
