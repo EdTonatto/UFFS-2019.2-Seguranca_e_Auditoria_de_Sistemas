@@ -54,3 +54,15 @@ def decrypt_text(codes, tree):
             text.append(node[1])
             node = tree
     return "".join(text)
+
+def compress(codes):
+    bytes = [chr(int(codes[i:i+8], 2)) for i in range(0, len(codes), 8)]
+    return "".join(bytes)
+
+def unpack(compressed_text, prefix):
+    bytes = [bin(ord(byte))[2:] for byte in compressed_text]
+    for i in range(0, len(bytes) - 1):
+        bytes[i] = bytes[i].zfill(8)
+    compressed_text = "".join(bytes)
+    unpacked_text = decrypt_text(compressed_text, prefix)
+    return unpacked_text

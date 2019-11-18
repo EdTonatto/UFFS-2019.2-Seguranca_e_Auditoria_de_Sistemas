@@ -2,17 +2,30 @@ from huffman import *
 
 text = 'EDUARDOTONATTO'
 
+print("\nFrequency:")
 frequency = frequency(text)
 print(frequency)
 
-prefix = prefix(frequency)
-print(prefix)
+print("\nPrefixes:")
+prefixes = prefix(frequency)
+print(prefixes)
 
-dictionary = dictionary(prefix)
+print("\nDictionary:")
+dictionary = dictionary(prefixes)
 print(dictionary)
 
+print("\nEncrypted Text:")
 encrypted_text = encrypt(text, dictionary)
 print(encrypted_text)
 
-decrypted_text = decrypt_text(encrypted_text, prefix)
+print("\nDecrypted Text:")
+decrypted_text = decrypt_text(encrypted_text, prefixes)
 print(decrypted_text)
+
+print("\nCompressed Text:")
+compressed_text = compress(encrypted_text)
+print(compressed_text)
+
+print("\nUnpacked Text:")
+unpacked_text = unpack(compressed_text, prefixes)
+print(unpacked_text)
